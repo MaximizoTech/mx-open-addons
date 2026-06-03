@@ -26,7 +26,7 @@
 
 ## 🚀 Installation
 
-1. Place the `mx_pos_rebranding` module in your Odoo `addons` directory.
+1. Place the `mx_pos_rebranding` module folder into your Odoo `custom_addons` directory (or whichever directory you use for third-party modules).
 2. Restart your Odoo server.
 3. Activate **Developer Mode**.
 4. Go to **Apps**, click **Update Apps List**, and search for **POS Rebranding**.
