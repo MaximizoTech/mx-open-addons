@@ -4,6 +4,8 @@
 [![License: LGPL-3](https://img.shields.io/badge/License-LGPL--3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 [![Author](https://img.shields.io/badge/Author-MaximizoTech-orange.svg)](https://maximizotech.com)
 
+![Banner](static/description/banner.png)
+
 ## Overview
 
 **POS Rebranding** by **MaximizoTech** is a powerful all-in-one Point of Sale customization module designed for Odoo 18. It allows you to fully white-label your POS interface, protect refund operations, customize the receipt layout, and adjust the UI theme colors via a user-friendly interface.
