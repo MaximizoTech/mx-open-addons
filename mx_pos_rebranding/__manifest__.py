@@ -72,6 +72,7 @@
         ],
     },
     "license": "LGPL-3",
+    "images": ["static/description/banner.png", "static/description/icon.png"],
     "installable": True,
     "application": True,
     "auto_install": False,
