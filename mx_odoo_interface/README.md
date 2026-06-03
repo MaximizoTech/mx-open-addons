@@ -83,3 +83,6 @@ For technical support, custom feature requests, or enterprise Odoo development s
 
 ---
 *Authorized and published by MaximizoTech. All rights reserved.*
+
+
+*Built and maintained by MaximizoTech. Portions inspired by open-source Odoo community tools.*

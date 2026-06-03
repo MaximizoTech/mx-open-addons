@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) MaximizoTech.
+    This software is released under the GNU LGPL-3.0 License.
+    See the LICENSE file for full copyright and licensing details.
+-->
 <templates id="template" xml:space="preserve">
 
     <!-- Replace the idle/saver screen's big Odoo logo with MaximizoTech branding -->

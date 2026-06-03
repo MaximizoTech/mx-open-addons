@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) MaximizoTech.
+    This software is released under the GNU LGPL-3.0 License.
+    See the LICENSE file for full copyright and licensing details.
+-->
 <odoo>
     <!-- Override the POS page title from "Odoo POS" to "MAXIMIZOTECH" -->
     <template id="pos_rebranding_pos_index" inherit_id="point_of_sale.index" name="MaximizoTech POS Index">
