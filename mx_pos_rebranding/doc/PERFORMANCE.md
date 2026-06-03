@@ -1,4 +1,4 @@
-# MaximizoTech — Performance Documentation
+# MaximizoTech - Performance Documentation
 
 This document provides technical details about the performance characteristics
 of the MaximizoTech module, including asset loading, theme injection,
@@ -103,7 +103,7 @@ The theme system computes derived colors from 4 base colors:
 
 The original 841-line `pos_premium_theme.scss` was split into two files:
 
-1. **Critical CSS** (`pos_theme_critical.scss` — 376 lines)
+1. **Critical CSS** (`pos_theme_critical.scss` - 376 lines)
    - CSS custom property definitions (`:root`)
    - Body and root container styles
    - Navbar (immediately visible)
@@ -113,7 +113,7 @@ The original 841-line `pos_premium_theme.scss` was split into two files:
    - Numpad
    - Pay button
 
-2. **Deferred CSS** (`pos_theme_deferred.scss` — 480 lines)
+2. **Deferred CSS** (`pos_theme_deferred.scss` - 480 lines)
    - Ticket screen
    - Payment screen
    - Search bars

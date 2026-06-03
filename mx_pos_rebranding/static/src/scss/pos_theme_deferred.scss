@@ -1,24 +1,24 @@
-/* ═══════════════════════════════════════════════════════
-   MaximizoTech POS Premium Theme — Deferred CSS
-   ═══════════════════════════════════════════════════════
+/* =======================================================
+   MaximizoTech POS Premium Theme - Deferred CSS
+   =======================================================
    This file contains below-the-fold styles that can be
    loaded after initial render. Sections 9-23: Ticket Screen,
    Payment Screen, Search Bar, Partner List, Popups, Loader,
    Receipt Screen, Saver Screen, Animations, Utilities.
    
    NOTE: These styles depend on CSS custom properties defined
-   in pos_theme_critical.scss — that file must load first.
+   in pos_theme_critical.scss - that file must load first.
    
    TEXT COLOR VARIABLES:
    - --mt-text: User's chosen text color (use on --mt-bg)
    - --mt-text-on-bg: Auto-contrast text for --mt-bg
    - --mt-text-on-surface: Auto-contrast text for --mt-surface/--mt-elevated
    - --mt-text-on-accent: Auto-contrast text for --mt-accent
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */
 
-/* ═══════════════════════════════════════════════════════
+/* =======================================================
    SECTION 9: TICKET SCREEN
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */
 .pos .ticket-screen,
 .pos .ticket-screen .screen-full-width {
   background: var(--mt-bg) !important;
@@ -54,9 +54,9 @@
   }
 }
 
-/* ═══════════════════════════════════════════════════════
+/* =======================================================
    SECTION 10: PAYMENT SCREEN
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */
 .pos .payment-screen {
   background: var(--mt-bg) !important;
   color: var(--mt-text-on-bg) !important;
@@ -89,9 +89,9 @@
   border-color: var(--mt-border) !important;
 }
 
-/* ═══════════════════════════════════════════════════════
+/* =======================================================
    SECTION 11: SEARCH BAR
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */
 .pos .search-bar,
 .pos .search-bar-portal {
   background: var(--mt-surface) !important;
@@ -109,9 +109,9 @@
   color: var(--mt-text-on-surface) !important;
 }
 
-/* ═══════════════════════════════════════════════════════
+/* =======================================================
    SECTION 12: PARTNER LIST
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */
 .pos .partner-list .partner-line {
   color: var(--mt-text-on-surface) !important;
   border-bottom: 1px solid var(--mt-border) !important;
@@ -125,9 +125,9 @@
   color: var(--mt-text-on-accent) !important;
 }
 
-/* ═══════════════════════════════════════════════════════
+/* =======================================================
    SECTION 13: POPUPS & MODALS
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */
 .pos .popup {
   background: var(--mt-surface) !important;
   color: var(--mt-text-on-surface) !important;
@@ -169,9 +169,9 @@
   border-color: var(--mt-border) !important;
 }
 
-/* ═══════════════════════════════════════════════════════
+/* =======================================================
    SECTION 14: LOADER
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */
 .pos .loader,
 .pos .pos-loader {
   background-color: var(--mt-bg) !important;
@@ -182,9 +182,9 @@
   background: var(--mt-accent) !important;
 }
 
-/* ═══════════════════════════════════════════════════════
+/* =======================================================
    SECTION 15: RECEIPT SCREEN
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */
 .pos .receipt-screen {
   background: var(--mt-bg) !important;
 }
@@ -194,13 +194,13 @@
   color: #2a2018;
 }
 
-/* ═══════════════════════════════════════════════════════
+/* =======================================================
    SECTION 16: SAVER / IDLE SCREEN
-   ═══════════════════════════════════════════════════════
+   =======================================================
    The idle/saver screen uses Odoo's .login-overlay class
    which reads --homeMenu-bg-color CSS variable for background.
    We set this variable in :root and style the overlay here.
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */
 
 /* Target the actual idle screen container */
 .pos .login-overlay {
@@ -257,9 +257,9 @@
   }
 }
 
-/* ═══════════════════════════════════════════════════════
+/* =======================================================
    SECTION 17: PRODUCT ENTRY ANIMATION
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */
 .pos .product-list .product {
   animation: mt-fadeIn 0.2s ease-out;
 }
@@ -275,11 +275,11 @@
   }
 }
 
-/* ═══════════════════════════════════════════════════════
+/* =======================================================
    SECTION 18: BOOTSTRAP UTILITY CLASS OVERRIDES
    These CSS classes are used directly on containers
    in Odoo POS XML templates.
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */
 .pos .bg-200 {
   background: var(--mt-bg) !important;
   color: var(--mt-text-on-bg) !important;
@@ -309,7 +309,7 @@
   color: var(--mt-text-on-elevated) !important;
 }
 
-/* ─── Text colour utilities ─── */
+/* --- Text colour utilities --- */
 .pos .text-muted {
   color: var(--mt-text-muted) !important;
 }
@@ -326,12 +326,12 @@
   color: var(--mt-danger) !important;
 }
 
-/* ─── Border utilities ─── */
+/* --- Border utilities --- */
 .pos .border-bottom {
   border-color: var(--mt-border) !important;
 }
 
-/* ─── Tables ─── */
+/* --- Tables --- */
 .pos table {
   color: var(--mt-text-on-surface) !important;
 }
@@ -342,7 +342,7 @@
   color: var(--mt-text-on-surface) !important;
 }
 
-/* ─── Typography ─── */
+/* --- Typography --- */
 .pos label,
 .pos .form-label {
   color: var(--mt-text-on-surface) !important;
@@ -356,12 +356,12 @@
   color: var(--mt-text-on-surface) !important;
 }
 
-/* ═══════════════════════════════════════════════════════
+/* =======================================================
    SECTION 19: BUTTON OVERRIDES
-   ═══════════════════════════════════════════════════════
+   =======================================================
    Style generic buttons but EXCLUDE category buttons
    that have colorlist colors (handled in critical.scss).
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */
 
 /* btn-light: exclude category buttons with colorlist colors */
 .pos .btn-light:not(.category-button[class*="o_colorlist_item_color_"]) {
@@ -431,16 +431,16 @@
   color: #fff;
 }
 
-/* ─── Altlight button (Odoo purple #7F82AC) ─── */
+/* --- Altlight button (Odoo purple #7F82AC) --- */
 .pos .button.altlight {
   background: var(--mt-accent);
   border: 1px solid var(--mt-accent-deep);
   color: var(--mt-text-on-accent);
 }
 
-/* ═══════════════════════════════════════════════════════
+/* =======================================================
    SECTION 20: BADGES, CARDS, ACCORDION, ALERTS
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */
 .pos .badge {
   color: var(--mt-text-on-surface) !important;
 }
@@ -476,9 +476,9 @@
   color: var(--mt-text-on-surface) !important;
 }
 
-/* ═══════════════════════════════════════════════════════
+/* =======================================================
    SECTION 21: FORM INPUTS INSIDE POS
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */
 .pos input:not([type="color"]),
 .pos select,
 .pos textarea {
@@ -492,9 +492,9 @@
   border-color: var(--mt-accent) !important;
 }
 
-/* ═══════════════════════════════════════════════════════
+/* =======================================================
    SECTION 22: ICONS & SCROLLBARS
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */
 .pos .fa {
   color: inherit;
 }
@@ -514,9 +514,9 @@
   background: var(--mt-text-muted);
 }
 
-/* ═══════════════════════════════════════════════════════
+/* =======================================================
    NOTE: Category and Product colorlist preservation is now
    handled properly in pos_theme_critical.scss using :not()
    selectors. The previous Section 23 with unset !important
    has been removed as it caused specificity issues.
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */

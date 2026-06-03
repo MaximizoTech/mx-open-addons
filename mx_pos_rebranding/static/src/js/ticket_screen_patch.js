@@ -8,7 +8,7 @@ import { useService } from "@web/core/utils/hooks";
 
 /**
  * Gate the Ticket Screen refund action behind a configurable password.
- * Password is set in: Settings → POS → MaximizoTech Custom UI → Refund Password
+ * Password is set in: Settings -> POS -> MaximizoTech Custom UI -> Refund Password
  * If no password is configured, refunds proceed without a gate.
  */
 patch(TicketScreen.prototype, {
@@ -20,22 +20,22 @@ patch(TicketScreen.prototype, {
   async onDoRefund() {
     const refundPassword = this.pos.config.refund_password;
 
-    // No password configured → allow refund immediately
+    // No password configured -> allow refund immediately
     if (!refundPassword) {
       return super.onDoRefund(...arguments);
     }
 
-    // Show password popup — arrow function inherits `super` from this method
+    // Show password popup - arrow function inherits `super` from this method
     this.dialog.add(NumberPopup, {
       title: _t("Refund Authorization"),
       placeholder: _t("Enter refund password"),
-      formatDisplayedValue: (input) => input.replace(/./g, "•"),
+      formatDisplayedValue: (input) => input.replace(/./g, "*"),
       getPayload: (inputPassword) => {
         if (String(inputPassword) === String(refundPassword)) {
-          // Correct → proceed with refund
+          // Correct -> proceed with refund
           super.onDoRefund();
         } else {
-          // Wrong → show warning
+          // Wrong -> show warning
           this.notification.add(_t("Incorrect refund password."), {
             type: "warning",
             title: _t("Access Denied"),
