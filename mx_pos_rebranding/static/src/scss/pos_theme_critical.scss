@@ -1,6 +1,6 @@
-/* ═══════════════════════════════════════════════════════
-   MaximizoTech POS Premium Theme — Critical CSS
-   ═══════════════════════════════════════════════════════
+/* =======================================================
+   MaximizoTech POS Premium Theme - Critical CSS
+   =======================================================
    This file contains above-the-fold styles that are loaded
    immediately. Sections 1-8: Root, Navbar, Dropdowns,
    Left Pane, Categories, Products, Numpad, Pay Button.
@@ -13,14 +13,14 @@
    
    All 4 core colours are set by theme service from pos.config fields.
    The values below are FALLBACK defaults used before JS runs.
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */
 
-/* ───── CSS CUSTOM PROPERTY DEFAULTS ─────
+/* ----- CSS CUSTOM PROPERTY DEFAULTS -----
    These NEUTRAL defaults match Odoo's stock POS appearance.
    The theme service OVERRIDES these at runtime on :root.
    If no values are set, the POS looks like stock Odoo. */
 :root {
-  /* Core 4 – overridden at runtime by JS from Settings. */
+  /* Core 4  overridden at runtime by JS from Settings. */
   --mt-accent: #714b67;
   --mt-bg: #f0eeee;
   --mt-surface: #ffffff;
@@ -29,7 +29,7 @@
   /* Odoo's idle screen uses these variables */
   --homeMenu-bg-color: var(--mt-bg);
 
-  /* Derived – also overridden by JS */
+  /* Derived  also overridden by JS */
   --mt-accent-light: #9a7590;
   --mt-accent-deep: #553a4d;
   --mt-elevated: #e8e5e5;
@@ -54,10 +54,10 @@
   --mt-transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ═══════════════════════════════════════════════════════
+/* =======================================================
    SECTION 1: ROOT & STRUCTURAL BACKGROUNDS
    Overrides #f0eeee from pos_app.scss & $gray-900
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */
 body.o-webclient {
   background-color: var(--mt-bg) !important;
 }
@@ -76,9 +76,9 @@ body.o-webclient {
   color: var(--mt-text-on-bg) !important;
 }
 
-/* ═══════════════════════════════════════════════════════
+/* =======================================================
    SECTION 2: TOP NAVBAR
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */
 .pos-topheader {
   background: var(--mt-surface) !important;
   color: var(--mt-text-on-surface) !important;
@@ -118,7 +118,7 @@ body.o-webclient {
   }
 }
 
-/* ─── Search bar in navbar ─── */
+/* --- Search bar in navbar --- */
 .pos .pos-search-bar,
 .pos .pos-rightheader input[type="text"] {
   background: var(--mt-bg) !important;
@@ -127,9 +127,9 @@ body.o-webclient {
   border-radius: var(--mt-radius) !important;
 }
 
-/* ═══════════════════════════════════════════════════════
+/* =======================================================
    SECTION 3: DROPDOWN MENUS
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */
 .pos .dropdown-menu {
   background: var(--mt-surface) !important;
   border: 1px solid var(--mt-glass-border) !important;
@@ -151,9 +151,9 @@ body.o-webclient {
   }
 }
 
-/* ═══════════════════════════════════════════════════════
-   SECTION 4: LEFT PANE — ORDER PANEL
-   ═══════════════════════════════════════════════════════ */
+/* =======================================================
+   SECTION 4: LEFT PANE - ORDER PANEL
+   ======================================================= */
 .pos .leftpane {
   background: var(--mt-surface) !important;
   border-right: 1px solid var(--mt-border) !important;
@@ -163,7 +163,7 @@ body.o-webclient {
   background: transparent !important;
 }
 
-/* Order lines — structural only */
+/* Order lines - structural only */
 .pos .orderline {
   color: var(--mt-text-on-surface) !important;
   border-bottom: 1px solid var(--mt-border);
@@ -192,7 +192,7 @@ body.o-webclient {
   }
 }
 
-/* ─── switchpane (bottom buttons: Customer, Kitchen Note, Actions) ─── */
+/* --- switchpane (bottom buttons: Customer, Kitchen Note, Actions) --- */
 .pos .switchpane {
   background: var(--mt-surface) !important;
   color: var(--mt-text-on-surface) !important;
@@ -212,7 +212,7 @@ body.o-webclient {
   }
 }
 
-/* ─── Control buttons (Customer, Kitchen Note, Actions, Clear All) ─── */
+/* --- Control buttons (Customer, Kitchen Note, Actions, Clear All) --- */
 .pos .control-buttons .control-button {
   background: var(--mt-elevated) !important;
   color: var(--mt-text-on-elevated) !important;
@@ -225,9 +225,9 @@ body.o-webclient {
   }
 }
 
-/* ═══════════════════════════════════════════════════════
-   SECTION 5: CATEGORY BUTTONS — PRESERVE ODOO COLORS
-   ═══════════════════════════════════════════════════════
+/* =======================================================
+   SECTION 5: CATEGORY BUTTONS - PRESERVE ODOO COLORS
+   =======================================================
    Odoo's colorlist uses .o_colorlist_item_color_N classes (N=1-12)
    defined in /web/static/src/core/colorlist/colorlist.scss.
    These provide BOTH background AND text colors with !important.
@@ -237,7 +237,7 @@ body.o-webclient {
    - Elements WITHOUT a colorlist class
    - Elements with _color_0 (no color = red slash)
    - Structural properties (border-radius, transitions, hover effects)
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */
 
 /* Base styling for ALL category buttons (structural only) */
 .pos .category-button {
@@ -282,16 +282,16 @@ body.o-webclient {
   background: transparent;
 }
 
-/* ═══════════════════════════════════════════════════════
-   SECTION 6: PRODUCT CARDS — PRESERVE ODOO COLORS
-   ═══════════════════════════════════════════════════════
+/* =======================================================
+   SECTION 6: PRODUCT CARDS - PRESERVE ODOO COLORS
+   =======================================================
    Product cards use .o_colorlist_item_color_transparent_N classes
    defined in /point_of_sale/static/src/scss/pos.scss.
    These provide background with 28% lightness adjustment.
    
    CRITICAL: Same strategy as categories - only style products
    WITHOUT colorlist colors or with _transparent_none.
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */
 
 /* Base styling for ALL product cards (structural only) */
 .pos .product {
@@ -339,7 +339,7 @@ body.o-webclient {
   font-weight: 600;
 }
 
-/* ─── Right pane (product area) ─── */
+/* --- Right pane (product area) --- */
 .pos .rightpane {
   background: var(--mt-bg) !important;
 }
@@ -347,9 +347,9 @@ body.o-webclient {
   background: var(--mt-bg) !important;
 }
 
-/* ═══════════════════════════════════════════════════════
+/* =======================================================
    SECTION 7: NUMPAD
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */
 .pos .numpad .numpad-button {
   background: var(--mt-elevated) !important;
   border: 1px solid var(--mt-border) !important;
@@ -382,7 +382,7 @@ body.o-webclient {
   }
 }
 
-/* ─── Numpad backspace & +/- ─── */
+/* --- Numpad backspace & +/- --- */
 .pos .numpad .numpad-button.numpad-backspace {
   color: var(--mt-danger) !important;
   &:hover {
@@ -391,9 +391,9 @@ body.o-webclient {
   }
 }
 
-/* ═══════════════════════════════════════════════════════
+/* =======================================================
    SECTION 8: PAY BUTTON
-   ═══════════════════════════════════════════════════════ */
+   ======================================================= */
 .pos .pay-order-button,
 .pos .button.pay-order-button {
   background: var(--mt-accent) !important;

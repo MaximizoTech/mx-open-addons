@@ -23,7 +23,7 @@
                                widget="image"
                                class="oe_avatar"/>
                         <div class="text-muted mt8">
-                            Recommended: PNG with transparent background, max 1024×1024px.
+                            Recommended: PNG with transparent background, max 1024x1024px.
                         </div>
                     </setting>
 

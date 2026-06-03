@@ -13,9 +13,9 @@
 
 import { registry } from "@web/core/registry";
 
-// ═══════════════════════════════════════════════════════════════════════
+// =======================================================================
 // Color Utility Functions
-// ═══════════════════════════════════════════════════════════════════════
+// =======================================================================
 
 /**
  * Validate a hex color string.
@@ -117,9 +117,9 @@ function getContrastingText(bgHex, lightText, darkText) {
     return isLightBackground(bgHex) ? darkText : lightText;
 }
 
-// ═══════════════════════════════════════════════════════════════════════
+// =======================================================================
 // Theme Service
-// ═══════════════════════════════════════════════════════════════════════
+// =======================================================================
 
 /**
  * Inject all theme CSS custom properties into the document root.
@@ -151,34 +151,34 @@ export function injectThemeColors(config) {
         ? normalizeHex(config.theme_text_color) 
         : defaults.text);
 
-    // ── Core 4 (from settings) ──
+    // -- Core 4 (from settings) --
     root.style.setProperty("--mt-accent", accent);
     root.style.setProperty("--mt-bg", bg);
     root.style.setProperty("--mt-surface", surface);
     root.style.setProperty("--mt-text", text);
 
-    // ── Odoo's idle screen variable ──
+    // -- Odoo's idle screen variable --
     root.style.setProperty("--homeMenu-bg-color", bg);
 
-    // ── Derived from accent ──
+    // -- Derived from accent --
     const accentLight = mixHex(accent, "#ffffff", 0.65);
     const accentDeep = mixHex(accent, "#000000", 0.75);
     root.style.setProperty("--mt-accent-light", accentLight);
     root.style.setProperty("--mt-accent-deep", accentDeep);
 
-    // ── Derived from surface ──
+    // -- Derived from surface --
     const elevated = mixHex(surface, "#ffffff", 0.8);
     root.style.setProperty("--mt-elevated", elevated);
 
-    // ── Derived from text + bg ──
+    // -- Derived from text + bg --
     root.style.setProperty("--mt-text-muted", mixHex(text, bg, 0.5));
     root.style.setProperty("--mt-text-secondary", mixHex(text, bg, 0.7));
 
-    // ══════════════════════════════════════════════════════════════════
+    // ==================================================================
     // SMART CONTRAST TEXT COLORS
     // These colors automatically switch based on background luminance.
     // Use --mt-text-on-X instead of --mt-text when the background is X.
-    // ══════════════════════════════════════════════════════════════════
+    // ==================================================================
     
     const darkFallback = "#1a1a1a";  // Dark text for light backgrounds
     const lightFallback = "#f5f5f5"; // Light text for dark backgrounds
@@ -203,18 +203,18 @@ export function injectThemeColors(config) {
     root.style.setProperty("--mt-text-on-bg", 
         getContrastingText(bg, lightFallback, darkFallback));
 
-    // ── Borders & cards – text color with alpha transparency ──
+    // -- Borders & cards  text color with alpha transparency --
     root.style.setProperty("--mt-border", hexAlpha(text, 0.1));
     root.style.setProperty("--mt-border-hover", hexAlpha(text, 0.22));
     root.style.setProperty("--mt-glass-border", hexAlpha(text, 0.12));
     root.style.setProperty("--mt-card-bg", hexAlpha(text, 0.06));
     root.style.setProperty("--mt-card-hover-bg", hexAlpha(text, 0.1));
 
-    // ── Status colors ──
+    // -- Status colors --
     root.style.setProperty("--mt-success", mixHex(accent, "#4caf50", 0.3));
     root.style.setProperty("--mt-danger", mixHex(accent, "#e53935", 0.15));
 
-    // ── Shadows based on bg color ──
+    // -- Shadows based on bg color --
     const shadowBase = hexAlpha(bg, 0.45);
     root.style.setProperty("--mt-shadow-sm", `0 1px 4px ${shadowBase}`);
     root.style.setProperty("--mt-shadow-md", `0 4px 14px ${shadowBase}`);
