@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="mx_pos_rebranding.Navbar"
+       t-inherit="point_of_sale.Navbar"
+       t-inherit-mode="extension"
+       owl="1">
+        <xpath expr="//div[hasclass('pos-centerheader')]" position="replace">
+            <div t-if="!ui.isSmall" class="pos-centerheader d-flex justify-content-center overflow-hidden">
+                <!-- Custom logo from pos.config -->
+                <t t-if="this.pos.config.custom_pos_logo">
+                    <img t-att-src="this.getCustomLogoUrl()"
+                         class="pos-logo mw-100"
+                         height="42"
+                         t-on-click="() => debug.toggleWidget()"
+                         alt="Custom POS Logo"/>
+                </t>
+                <!-- Fallback: company logo -->
+                <t t-else="">
+                    <img t-att-src="this.getCompanyLogoUrl()"
+                         class="pos-logo mw-100"
+                         height="42"
+                         t-on-click="() => debug.toggleWidget()"
+                         alt="Company Logo"/>
+                </t>
+            </div>
+        </xpath>
+    </t>
+</templates>

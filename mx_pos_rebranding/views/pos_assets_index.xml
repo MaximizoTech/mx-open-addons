@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Override the POS page title from "Odoo POS" to "MAXIMIZOTECH" -->
+    <template id="pos_rebranding_pos_index" inherit_id="point_of_sale.index" name="MaximizoTech POS Index">
+        <xpath expr="//title" position="replace">
+            <title>MAXIMIZOTECH</title>
+        </xpath>
+    </template>
+</odoo>

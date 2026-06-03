@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!-- Replace the idle/saver screen's big Odoo logo with MaximizoTech branding -->
+    <t t-name="mx_pos_rebranding.SaverScreen"
+       t-inherit="point_of_sale.SaverScreen"
+       t-inherit-mode="extension"
+       owl="1">
+        <xpath expr="//img[@src='/web/static/img/odoo_logo.svg']" position="replace">
+            <div class="mt-saver-brand d-flex flex-column align-items-center gap-3">
+                <div class="mt-saver-logo-text" t-att-style="env.isSmall ? 'font-size: 2rem;' : 'font-size: 4.5rem;'">
+                    <t t-esc="env.services.pos.config.idle_screen_text || 'MAXIMIZOTECH'"/>
+                </div>
+                <div class="mt-saver-tagline" t-att-style="env.isSmall ? 'font-size: 0.7rem;' : 'font-size: 1rem;'">
+                    Point of Sale System
+                </div>
+            </div>
+        </xpath>
+    </t>
+
+</templates>

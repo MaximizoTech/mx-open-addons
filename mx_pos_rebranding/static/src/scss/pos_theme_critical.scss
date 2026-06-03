@@ -1,0 +1,421 @@
+/* ═══════════════════════════════════════════════════════
+   MaximizoTech POS Premium Theme — Critical CSS
+   ═══════════════════════════════════════════════════════
+   This file contains above-the-fold styles that are loaded
+   immediately. Sections 1-8: Root, Navbar, Dropdowns,
+   Left Pane, Categories, Products, Numpad, Pay Button.
+   
+   COLOR STRATEGY:
+   1. Override STRUCTURAL backgrounds only (panels, navbar, numpad)
+   2. PRESERVE Odoo's o_colorlist_item_color_* for categories/products
+   3. Use :not() selectors to exclude elements with colorlist colors
+   4. Avoid !important where CSS specificity suffices
+   
+   All 4 core colours are set by theme service from pos.config fields.
+   The values below are FALLBACK defaults used before JS runs.
+   ═══════════════════════════════════════════════════════ */
+
+/* ───── CSS CUSTOM PROPERTY DEFAULTS ─────
+   These NEUTRAL defaults match Odoo's stock POS appearance.
+   The theme service OVERRIDES these at runtime on :root.
+   If no values are set, the POS looks like stock Odoo. */
+:root {
+  /* Core 4 – overridden at runtime by JS from Settings. */
+  --mt-accent: #714b67;
+  --mt-bg: #f0eeee;
+  --mt-surface: #ffffff;
+  --mt-text: #495057;
+
+  /* Odoo's idle screen uses these variables */
+  --homeMenu-bg-color: var(--mt-bg);
+
+  /* Derived – also overridden by JS */
+  --mt-accent-light: #9a7590;
+  --mt-accent-deep: #553a4d;
+  --mt-elevated: #e8e5e5;
+  --mt-text-muted: #999;
+  --mt-text-secondary: #6c757d;
+
+  --mt-border: rgba(0, 0, 0, 0.1);
+  --mt-border-hover: rgba(0, 0, 0, 0.2);
+  --mt-glass-border: rgba(0, 0, 0, 0.08);
+  --mt-card-bg: rgba(0, 0, 0, 0.03);
+  --mt-card-hover-bg: rgba(0, 0, 0, 0.06);
+  --mt-success: #28a745;
+  --mt-danger: #dc3545;
+
+  --mt-shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.08);
+  --mt-shadow-md: 0 4px 14px rgba(0, 0, 0, 0.12);
+  --mt-shadow-lg: 0 8px 28px rgba(0, 0, 0, 0.18);
+
+  --mt-radius: clamp(8px, 1.2vw, 14px);
+  --mt-radius-lg: clamp(12px, 1.6vw, 18px);
+
+  --mt-transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 1: ROOT & STRUCTURAL BACKGROUNDS
+   Overrides #f0eeee from pos_app.scss & $gray-900
+   ═══════════════════════════════════════════════════════ */
+body.o-webclient {
+  background-color: var(--mt-bg) !important;
+}
+
+.pos {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif !important;
+  background: var(--mt-bg) !important;
+  background-color: var(--mt-bg) !important;
+  color: var(--mt-text-on-bg) !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+.pos a {
+  color: var(--mt-text-on-bg) !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 2: TOP NAVBAR
+   ═══════════════════════════════════════════════════════ */
+.pos-topheader {
+  background: var(--mt-surface) !important;
+  color: var(--mt-text-on-surface) !important;
+  border-bottom: 1px solid var(--mt-glass-border) !important;
+  box-shadow: var(--mt-shadow-sm);
+}
+
+.pos-topheader .btn,
+.pos-topheader .btn-light {
+  background: transparent !important;
+  border: 1px solid var(--mt-border) !important;
+  color: var(--mt-text-on-surface) !important;
+  transition: var(--mt-transition);
+  border-radius: var(--mt-radius) !important;
+
+  &:hover {
+    background: var(--mt-card-hover-bg) !important;
+    border-color: var(--mt-border-hover) !important;
+    color: var(--mt-text-on-surface) !important;
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+.pos .pos-leftheader,
+.pos .pos-centerheader,
+.pos .pos-rightheader {
+  background: transparent !important;
+}
+
+.pos-centerheader .pos-logo {
+  transition: var(--mt-transition);
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
+/* ─── Search bar in navbar ─── */
+.pos .pos-search-bar,
+.pos .pos-rightheader input[type="text"] {
+  background: var(--mt-bg) !important;
+  color: var(--mt-text-on-bg) !important;
+  border: 1px solid var(--mt-border) !important;
+  border-radius: var(--mt-radius) !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 3: DROPDOWN MENUS
+   ═══════════════════════════════════════════════════════ */
+.pos .dropdown-menu {
+  background: var(--mt-surface) !important;
+  border: 1px solid var(--mt-glass-border) !important;
+  border-radius: var(--mt-radius-lg) !important;
+  box-shadow: var(--mt-shadow-lg) !important;
+  overflow: hidden;
+}
+
+.pos .o-dropdown-item,
+.pos .dropdown-item {
+  color: var(--mt-text-on-surface) !important;
+  transition: var(--mt-transition);
+  padding: 12px 18px !important;
+
+  &:hover,
+  &.focus {
+    background: var(--mt-card-hover-bg) !important;
+    color: var(--mt-text-on-surface) !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 4: LEFT PANE — ORDER PANEL
+   ═══════════════════════════════════════════════════════ */
+.pos .leftpane {
+  background: var(--mt-surface) !important;
+  border-right: 1px solid var(--mt-border) !important;
+}
+
+.pos .order-container {
+  background: transparent !important;
+}
+
+/* Order lines — structural only */
+.pos .orderline {
+  color: var(--mt-text-on-surface) !important;
+  border-bottom: 1px solid var(--mt-border);
+  padding: 10px 8px !important;
+  transition: var(--mt-transition);
+
+  &:hover {
+    background: var(--mt-card-bg) !important;
+  }
+
+  &.selected {
+    background: var(--mt-card-hover-bg) !important;
+    border-left: 3px solid var(--mt-accent);
+  }
+}
+
+.pos .order-scroller {
+  color: var(--mt-text) !important;
+}
+
+.pos .order-summary,
+.pos .summary {
+  color: var(--mt-text) !important;
+  .value {
+    color: var(--mt-accent-light) !important;
+  }
+}
+
+/* ─── switchpane (bottom buttons: Customer, Kitchen Note, Actions) ─── */
+.pos .switchpane {
+  background: var(--mt-surface) !important;
+  color: var(--mt-text-on-surface) !important;
+}
+
+.pos .btn-switchpane {
+  background: var(--mt-elevated) !important;
+  color: var(--mt-text-on-elevated) !important;
+  border: 1px solid var(--mt-border) !important;
+  border-radius: var(--mt-radius) !important;
+  transition: var(--mt-transition);
+  min-height: clamp(54px, 7vw, 70px) !important;
+
+  &:hover {
+    background: var(--mt-card-hover-bg) !important;
+    color: var(--mt-text-on-surface) !important;
+  }
+}
+
+/* ─── Control buttons (Customer, Kitchen Note, Actions, Clear All) ─── */
+.pos .control-buttons .control-button {
+  background: var(--mt-elevated) !important;
+  color: var(--mt-text-on-elevated) !important;
+  border: 1px solid var(--mt-border) !important;
+  border-radius: var(--mt-radius) !important;
+
+  &:hover {
+    background: var(--mt-card-hover-bg) !important;
+    color: var(--mt-text-on-surface) !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 5: CATEGORY BUTTONS — PRESERVE ODOO COLORS
+   ═══════════════════════════════════════════════════════
+   Odoo's colorlist uses .o_colorlist_item_color_N classes (N=1-12)
+   defined in /web/static/src/core/colorlist/colorlist.scss.
+   These provide BOTH background AND text colors with !important.
+   
+   CRITICAL: We must NOT override background/color for elements
+   that have these colorlist classes. Only style:
+   - Elements WITHOUT a colorlist class
+   - Elements with _color_0 (no color = red slash)
+   - Structural properties (border-radius, transitions, hover effects)
+   ═══════════════════════════════════════════════════════ */
+
+/* Base styling for ALL category buttons (structural only) */
+.pos .category-button {
+  border-radius: var(--mt-radius);
+  transition: var(--mt-transition);
+  padding: 12px 16px;
+  min-height: 48px;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--mt-shadow-sm);
+    filter: brightness(1.08);
+  }
+}
+
+/* Category buttons WITHOUT any colorlist color get themed background.
+   This selector matches buttons that:
+   - Have no colorlist class at all, OR
+   - Have _color_0 (the "no color" option with red slash), OR
+   - Have _color_none (alternative no-color indicator)
+*/
+.pos .category-button:not([class*="o_colorlist_item_color_"]),
+.pos .category-button.o_colorlist_item_color_0 {
+  background: var(--mt-elevated);
+  color: var(--mt-text-on-elevated);
+  border: 1px solid var(--mt-border);
+
+  &:hover {
+    background: var(--mt-card-hover-bg);
+    color: var(--mt-text-on-surface);
+  }
+}
+
+/* Category buttons WITH colorlist colors: only modify border, not bg/text */
+.pos .category-button[class*="o_colorlist_item_color_"]:not(.o_colorlist_item_color_0) {
+  /* Let Odoo's colorlist provide background-color and color */
+  /* Only set border to complement any category color */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.pos .category-list {
+  background: transparent;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 6: PRODUCT CARDS — PRESERVE ODOO COLORS
+   ═══════════════════════════════════════════════════════
+   Product cards use .o_colorlist_item_color_transparent_N classes
+   defined in /point_of_sale/static/src/scss/pos.scss.
+   These provide background with 28% lightness adjustment.
+   
+   CRITICAL: Same strategy as categories - only style products
+   WITHOUT colorlist colors or with _transparent_none.
+   ═══════════════════════════════════════════════════════ */
+
+/* Base styling for ALL product cards (structural only) */
+.pos .product {
+  border: 1px solid var(--mt-border);
+  border-radius: var(--mt-radius-lg);
+  transition: var(--mt-transition);
+  overflow: hidden;
+
+  &:hover {
+    border-color: var(--mt-border-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--mt-shadow-md);
+    filter: brightness(1.05);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 0 0 3px var(--mt-accent);
+  }
+
+  .product-img img {
+    border-radius: var(--mt-radius-lg) var(--mt-radius-lg) 0 0;
+  }
+}
+
+/* Products WITHOUT any colorlist color get themed background */
+.pos .product:not([class*="o_colorlist_item_color_transparent_"]),
+.pos .product.o_colorlist_item_color_transparent_none,
+.pos .product.o_colorlist_item_color_transparent_0 {
+  background: var(--mt-card-bg);
+  color: var(--mt-text-on-bg);
+
+  .product-name {
+    color: var(--mt-text-on-bg);
+  }
+}
+
+/* Products WITH colorlist colors: Odoo handles bg/text, we only adjust border */
+.pos .product[class*="o_colorlist_item_color_transparent_"]:not(.o_colorlist_item_color_transparent_none):not(.o_colorlist_item_color_transparent_0) {
+  /* Let Odoo's colorlist provide background-color and color */
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.pos .product .price-tag {
+  font-weight: 600;
+}
+
+/* ─── Right pane (product area) ─── */
+.pos .rightpane {
+  background: var(--mt-bg) !important;
+}
+.pos .rightpane .product-list-container {
+  background: var(--mt-bg) !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 7: NUMPAD
+   ═══════════════════════════════════════════════════════ */
+.pos .numpad .numpad-button {
+  background: var(--mt-elevated) !important;
+  border: 1px solid var(--mt-border) !important;
+  color: var(--mt-text-on-elevated) !important;
+  border-radius: var(--mt-radius) !important;
+  transition: var(--mt-transition);
+  font-weight: 500;
+  font-size: clamp(15px, 1.8vw, 20px);
+  padding: clamp(12px, 1.5vw, 18px) !important;
+  min-height: 52px;
+
+  &:hover {
+    background: var(--mt-card-hover-bg) !important;
+    transform: scale(1.03);
+    color: var(--mt-text-on-surface) !important;
+  }
+
+  &:active {
+    transform: scale(0.96);
+    background: var(--mt-accent) !important;
+    color: var(--mt-text-on-accent) !important;
+  }
+
+  &.active,
+  &.input-button.selected-mode {
+    background: var(--mt-accent) !important;
+    color: var(--mt-text-on-accent) !important;
+    border-color: var(--mt-accent) !important;
+    font-weight: 700;
+  }
+}
+
+/* ─── Numpad backspace & +/- ─── */
+.pos .numpad .numpad-button.numpad-backspace {
+  color: var(--mt-danger) !important;
+  &:hover {
+    background: var(--mt-danger) !important;
+    color: #fff !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 8: PAY BUTTON
+   ═══════════════════════════════════════════════════════ */
+.pos .pay-order-button,
+.pos .button.pay-order-button {
+  background: var(--mt-accent) !important;
+  color: var(--mt-text-on-accent) !important;
+  border: none !important;
+  border-radius: var(--mt-radius-lg) !important;
+  font-weight: 700;
+  font-size: clamp(16px, 1.6vw, 22px);
+  letter-spacing: 1px;
+  transition: var(--mt-transition);
+  min-height: clamp(70px, 9vw, 100px) !important;
+  box-shadow: var(--mt-shadow-md);
+
+  &:hover {
+    background: var(--mt-accent-light) !important;
+    color: var(--mt-text-on-accent-light) !important;
+    box-shadow: var(--mt-shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: var(--mt-shadow-sm);
+  }
+}

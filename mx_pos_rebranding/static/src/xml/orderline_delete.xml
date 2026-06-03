@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!-- Add X icon to each orderline to remove it -->
+    <t t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+        <xpath expr="//div[@t-if='props.showTaxGroupLabels']" position="after">
+            <t>
+                <i style="margin-left: 3%;" id="clear_icon"
+                   class="fa fa-times-circle"
+                   t-on-click="(el) => this.clear_button_fun(el)"/>
+            </t>
+        </xpath>
+    </t>
+
+    <!-- Add "Clear All" button to control buttons -->
+    <t t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+        <xpath expr="//OrderlineNoteButton" position="after">
+            <button class="control-button btn btn-light rounded-0 fw-bolder"
+                    style="background: var(--mt-danger) !important; color: #fff !important; border-color: var(--mt-danger) !important;"
+                    t-on-click="() => this.onClearLines()">
+                <i class="fa fa-eraser"/> Clear All
+            </button>
+        </xpath>
+    </t>
+
+</templates>

@@ -1,0 +1,522 @@
+/* ═══════════════════════════════════════════════════════
+   MaximizoTech POS Premium Theme — Deferred CSS
+   ═══════════════════════════════════════════════════════
+   This file contains below-the-fold styles that can be
+   loaded after initial render. Sections 9-23: Ticket Screen,
+   Payment Screen, Search Bar, Partner List, Popups, Loader,
+   Receipt Screen, Saver Screen, Animations, Utilities.
+   
+   NOTE: These styles depend on CSS custom properties defined
+   in pos_theme_critical.scss — that file must load first.
+   
+   TEXT COLOR VARIABLES:
+   - --mt-text: User's chosen text color (use on --mt-bg)
+   - --mt-text-on-bg: Auto-contrast text for --mt-bg
+   - --mt-text-on-surface: Auto-contrast text for --mt-surface/--mt-elevated
+   - --mt-text-on-accent: Auto-contrast text for --mt-accent
+   ═══════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 9: TICKET SCREEN
+   ═══════════════════════════════════════════════════════ */
+.pos .ticket-screen,
+.pos .ticket-screen .screen-full-width {
+  background: var(--mt-bg) !important;
+  color: var(--mt-text-on-bg) !important;
+}
+.pos .ticket-screen .orders .order-row {
+  background: var(--mt-surface) !important;
+  color: var(--mt-text-on-surface) !important;
+  border-color: var(--mt-border) !important;
+}
+.pos .ticket-screen .orders .order-row:hover {
+  background: var(--mt-card-hover-bg) !important;
+}
+.pos .ticket-screen .orders .order-row.highlight {
+  background: var(--mt-card-hover-bg) !important;
+  color: var(--mt-text-on-surface) !important;
+}
+.pos .ticket-screen .highlighted {
+  background-color: var(--mt-accent) !important;
+  color: var(--mt-text-on-accent) !important;
+}
+.pos .ticket-screen .delete-button {
+  background: var(--mt-danger) !important;
+  color: #fff !important;
+}
+.pos .ticket-screen .controls .btn {
+  background: var(--mt-elevated) !important;
+  color: var(--mt-text-on-elevated) !important;
+  border-color: var(--mt-border) !important;
+  &:hover {
+    background: var(--mt-card-hover-bg) !important;
+    color: var(--mt-text-on-surface) !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 10: PAYMENT SCREEN
+   ═══════════════════════════════════════════════════════ */
+.pos .payment-screen {
+  background: var(--mt-bg) !important;
+  color: var(--mt-text-on-bg) !important;
+}
+.pos .payment-screen .payment-summary {
+  background: var(--mt-surface) !important;
+}
+.pos .payment-screen .button {
+  background: var(--mt-elevated) !important;
+  color: var(--mt-text-on-elevated) !important;
+  border-color: var(--mt-border) !important;
+  &:hover {
+    background: var(--mt-card-hover-bg) !important;
+    color: var(--mt-text-on-surface) !important;
+  }
+}
+.pos .payment-screen .payment-info-content {
+  background: var(--mt-surface) !important;
+  color: var(--mt-text-on-surface) !important;
+}
+.pos .payment-lines-container,
+.pos .paymentlines,
+.pos .payment-lines {
+  background: var(--mt-surface) !important;
+  color: var(--mt-text-on-surface) !important;
+}
+.pos .payment-line,
+.pos .paymentline {
+  color: var(--mt-text-on-surface) !important;
+  border-color: var(--mt-border) !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 11: SEARCH BAR
+   ═══════════════════════════════════════════════════════ */
+.pos .search-bar,
+.pos .search-bar-portal {
+  background: var(--mt-surface) !important;
+  color: var(--mt-text-on-surface) !important;
+  border-color: var(--mt-border) !important;
+}
+.pos .search-bar input,
+.pos .search-bar-portal input {
+  background: var(--mt-bg) !important;
+  color: var(--mt-text-on-bg) !important;
+  border-color: var(--mt-border) !important;
+}
+.pos .search-bar .search-btn {
+  background: var(--mt-surface) !important;
+  color: var(--mt-text-on-surface) !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 12: PARTNER LIST
+   ═══════════════════════════════════════════════════════ */
+.pos .partner-list .partner-line {
+  color: var(--mt-text-on-surface) !important;
+  border-bottom: 1px solid var(--mt-border) !important;
+}
+.pos .partner-list .partner-line:hover,
+.pos .partner-list .partner-line.highlight {
+  background-color: var(--mt-card-hover-bg) !important;
+}
+.pos .partner-list .partner-line.active {
+  background-color: var(--mt-accent) !important;
+  color: var(--mt-text-on-accent) !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 13: POPUPS & MODALS
+   ═══════════════════════════════════════════════════════ */
+.pos .popup {
+  background: var(--mt-surface) !important;
+  color: var(--mt-text-on-surface) !important;
+  border: 1px solid var(--mt-glass-border) !important;
+  border-radius: var(--mt-radius-lg) !important;
+  box-shadow: var(--mt-shadow-lg) !important;
+}
+.pos .popup .title {
+  color: var(--mt-text-on-surface) !important;
+}
+.pos .popup .body {
+  color: var(--mt-text-on-surface) !important;
+}
+.pos .popup .footer .button {
+  background: var(--mt-elevated) !important;
+  color: var(--mt-text-on-elevated) !important;
+  border: 1px solid var(--mt-border) !important;
+}
+.pos .popup .footer .button.confirm {
+  background: var(--mt-accent) !important;
+  color: var(--mt-text-on-accent) !important;
+}
+.pos .popup-input input,
+.pos .popup input {
+  background: var(--mt-bg) !important;
+  color: var(--mt-text-on-bg) !important;
+  border: 1px solid var(--mt-border) !important;
+}
+.pos .modal-dialog .modal-content {
+  background: var(--mt-surface) !important;
+  color: var(--mt-text-on-surface) !important;
+  border: 1px solid var(--mt-glass-border) !important;
+}
+.pos .modal-header {
+  border-color: var(--mt-border) !important;
+  color: var(--mt-text-on-surface) !important;
+}
+.pos .modal-footer {
+  border-color: var(--mt-border) !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 14: LOADER
+   ═══════════════════════════════════════════════════════ */
+.pos .loader,
+.pos .pos-loader {
+  background-color: var(--mt-bg) !important;
+  color: var(--mt-text-on-bg) !important;
+}
+.pos .loader .progress-bar,
+.pos .pos-loader .progress-bar {
+  background: var(--mt-accent) !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 15: RECEIPT SCREEN
+   ═══════════════════════════════════════════════════════ */
+.pos .receipt-screen {
+  background: var(--mt-bg) !important;
+}
+/* Receipt paper itself is always white (for printing) */
+.pos .pos-receipt {
+  background: #fff;
+  color: #2a2018;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 16: SAVER / IDLE SCREEN
+   ═══════════════════════════════════════════════════════
+   The idle/saver screen uses Odoo's .login-overlay class
+   which reads --homeMenu-bg-color CSS variable for background.
+   We set this variable in :root and style the overlay here.
+   ═══════════════════════════════════════════════════════ */
+
+/* Target the actual idle screen container */
+.pos .login-overlay {
+  /* Override Odoo's default background with our theme colors */
+  --homeMenu-bg-color: var(--mt-bg);
+  background-color: var(--mt-bg) !important;
+  background-image: none !important;
+}
+
+/* Style the clock/date in idle screen */
+.pos .login-overlay .screen-login-header {
+  color: var(--mt-text);
+}
+
+.pos .login-overlay .timer-hours {
+  color: var(--mt-accent-light);
+}
+
+.pos .login-overlay .timer-day,
+.pos .login-overlay .timer-date {
+  color: var(--mt-text-muted);
+}
+
+/* MaximizoTech branding text in idle screen */
+.pos .login-overlay .mt-saver-brand,
+.pos .mt-saver-brand {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 6px;
+  color: var(--mt-accent-light);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+  animation: mt-pulse 3s ease-in-out infinite;
+}
+
+.pos .login-overlay .mt-saver-logo-text,
+.pos .mt-saver-logo-text {
+  color: var(--mt-accent-light);
+}
+
+.pos .login-overlay .mt-saver-tagline,
+.pos .mt-saver-tagline {
+  color: var(--mt-text-muted);
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+@keyframes mt-pulse {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 17: PRODUCT ENTRY ANIMATION
+   ═══════════════════════════════════════════════════════ */
+.pos .product-list .product {
+  animation: mt-fadeIn 0.2s ease-out;
+}
+
+@keyframes mt-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 18: BOOTSTRAP UTILITY CLASS OVERRIDES
+   These CSS classes are used directly on containers
+   in Odoo POS XML templates.
+   ═══════════════════════════════════════════════════════ */
+.pos .bg-200 {
+  background: var(--mt-bg) !important;
+  color: var(--mt-text-on-bg) !important;
+}
+.pos .bg-view {
+  background: var(--mt-surface) !important;
+  color: var(--mt-text-on-surface) !important;
+}
+.pos .text-bg-view {
+  background: var(--mt-surface) !important;
+  color: var(--mt-text-on-surface) !important;
+}
+.pos .bg-white {
+  background: var(--mt-surface) !important;
+  color: var(--mt-text-on-surface) !important;
+}
+.pos .bg-100 {
+  background: var(--mt-bg) !important;
+  color: var(--mt-text-on-bg) !important;
+}
+.pos .bg-light {
+  background: var(--mt-elevated) !important;
+  color: var(--mt-text-on-elevated) !important;
+}
+.pos .text-bg-light {
+  background: var(--mt-elevated) !important;
+  color: var(--mt-text-on-elevated) !important;
+}
+
+/* ─── Text colour utilities ─── */
+.pos .text-muted {
+  color: var(--mt-text-muted) !important;
+}
+.pos .text-dark {
+  color: var(--mt-text) !important;
+}
+.pos .text-primary {
+  color: var(--mt-accent) !important;
+}
+.pos .text-success {
+  color: var(--mt-success) !important;
+}
+.pos .text-danger {
+  color: var(--mt-danger) !important;
+}
+
+/* ─── Border utilities ─── */
+.pos .border-bottom {
+  border-color: var(--mt-border) !important;
+}
+
+/* ─── Tables ─── */
+.pos table {
+  color: var(--mt-text-on-surface) !important;
+}
+.pos th {
+  color: var(--mt-text-secondary) !important;
+}
+.pos td {
+  color: var(--mt-text-on-surface) !important;
+}
+
+/* ─── Typography ─── */
+.pos label,
+.pos .form-label {
+  color: var(--mt-text-on-surface) !important;
+}
+.pos h1,
+.pos h2,
+.pos h3,
+.pos h4,
+.pos h5,
+.pos h6 {
+  color: var(--mt-text-on-surface) !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 19: BUTTON OVERRIDES
+   ═══════════════════════════════════════════════════════
+   Style generic buttons but EXCLUDE category buttons
+   that have colorlist colors (handled in critical.scss).
+   ═══════════════════════════════════════════════════════ */
+
+/* btn-light: exclude category buttons with colorlist colors */
+.pos .btn-light:not(.category-button[class*="o_colorlist_item_color_"]) {
+  background: var(--mt-elevated);
+  color: var(--mt-text-on-elevated);
+  border: 1px solid var(--mt-border);
+  border-radius: var(--mt-radius);
+
+  &:hover {
+    background: var(--mt-card-hover-bg);
+    color: var(--mt-text-on-surface);
+  }
+}
+
+/* Category buttons without colorlist colors get btn-light styling */
+.pos .btn-light.category-button:not([class*="o_colorlist_item_color_"]),
+.pos .btn-light.category-button.o_colorlist_item_color_0 {
+  background: var(--mt-elevated);
+  color: var(--mt-text-on-elevated);
+  border: 1px solid var(--mt-border);
+
+  &:hover {
+    background: var(--mt-card-hover-bg);
+    color: var(--mt-text-on-surface);
+  }
+}
+
+.pos .btn-dark {
+  background: var(--mt-bg);
+  color: var(--mt-text-on-bg);
+  border: 1px solid var(--mt-border);
+  border-radius: var(--mt-radius);
+
+  &:hover {
+    background: var(--mt-card-bg);
+    color: var(--mt-text-on-bg);
+  }
+}
+
+.pos .btn-secondary {
+  background: var(--mt-elevated);
+  color: var(--mt-text-on-elevated);
+  border-color: var(--mt-border);
+
+  &:hover {
+    background: var(--mt-card-hover-bg);
+    color: var(--mt-text-on-surface);
+  }
+}
+
+.pos .btn-primary {
+  background: var(--mt-accent);
+  color: var(--mt-text-on-accent);
+  border-color: var(--mt-accent-deep);
+
+  &:hover {
+    background: var(--mt-accent-light);
+    color: var(--mt-text-on-accent-light);
+  }
+}
+
+.pos .btn-success {
+  color: #fff;
+}
+
+.pos .btn-danger {
+  color: #fff;
+}
+
+/* ─── Altlight button (Odoo purple #7F82AC) ─── */
+.pos .button.altlight {
+  background: var(--mt-accent);
+  border: 1px solid var(--mt-accent-deep);
+  color: var(--mt-text-on-accent);
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 20: BADGES, CARDS, ACCORDION, ALERTS
+   ═══════════════════════════════════════════════════════ */
+.pos .badge {
+  color: var(--mt-text-on-surface) !important;
+}
+.pos .badge.text-bg-info {
+  background: var(--mt-card-hover-bg) !important;
+  color: var(--mt-text-on-surface) !important;
+}
+
+.pos .card {
+  background: var(--mt-elevated) !important;
+  border-color: var(--mt-border) !important;
+  color: var(--mt-text-on-elevated) !important;
+}
+.pos .accordion-item {
+  background: var(--mt-elevated) !important;
+  border-color: var(--mt-border) !important;
+  color: var(--mt-text-on-elevated) !important;
+}
+
+.pos .alert-info {
+  background: var(--mt-card-hover-bg) !important;
+  border-color: var(--mt-border-hover) !important;
+  color: var(--mt-text-on-surface) !important;
+}
+.pos .alert-warning {
+  background: var(--mt-card-hover-bg) !important;
+  border-color: var(--mt-accent) !important;
+  color: var(--mt-text-on-surface) !important;
+}
+.pos .alert-danger {
+  background: rgba(208, 70, 58, 0.12) !important;
+  border-color: var(--mt-danger) !important;
+  color: var(--mt-text-on-surface) !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 21: FORM INPUTS INSIDE POS
+   ═══════════════════════════════════════════════════════ */
+.pos input:not([type="color"]),
+.pos select,
+.pos textarea {
+  background: var(--mt-bg) !important;
+  color: var(--mt-text-on-bg) !important;
+  border-color: var(--mt-border) !important;
+}
+.pos input:focus,
+.pos select:focus,
+.pos textarea:focus {
+  border-color: var(--mt-accent) !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 22: ICONS & SCROLLBARS
+   ═══════════════════════════════════════════════════════ */
+.pos .fa {
+  color: inherit;
+}
+
+.pos ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.pos ::-webkit-scrollbar-track {
+  background: var(--mt-bg);
+}
+.pos ::-webkit-scrollbar-thumb {
+  background: var(--mt-border-hover);
+  border-radius: 3px;
+}
+.pos ::-webkit-scrollbar-thumb:hover {
+  background: var(--mt-text-muted);
+}
+
+/* ═══════════════════════════════════════════════════════
+   NOTE: Category and Product colorlist preservation is now
+   handled properly in pos_theme_critical.scss using :not()
+   selectors. The previous Section 23 with unset !important
+   has been removed as it caused specificity issues.
+   ═══════════════════════════════════════════════════════ */

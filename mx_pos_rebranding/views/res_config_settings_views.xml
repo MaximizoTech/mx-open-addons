@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_config_settings_form_pos_rebranding"
+            model="ir.ui.view">
+        <field name="name">res.config.settings.form.mx_pos_rebranding.pos.core</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pos_interface_section']" position="before">
+                <block title="MaximizoTech Custom UI"
+                       id="pos_rebranding_custom_ui_section">
+
+                    <!-- Custom POS Logo -->
+                    <setting id="pos_rebranding_custom_pos_logo"
+                             string="Custom POS Logo"
+                             help="Upload a logo to replace the default Odoo logo in the POS header.">
+                        <field name="pos_custom_pos_logo"
+                               widget="image"
+                               class="oe_avatar"/>
+                        <div class="text-muted mt8">
+                            Recommended: PNG with transparent background, max 1024×1024px.
+                        </div>
+                    </setting>
+
+                    <!-- Theme Colors -->
+                    <setting id="pos_rebranding_theme_colors"
+                             string="Theme Colors"
+                             help="Customize the POS color palette. Leave empty to use Odoo defaults. Click X to reset a color.">
+                        <div class="content-group mt-3">
+                            <div class="row">
+                                <div class="col-12 col-md-6 mb-4">
+                                    <label for="pos_theme_accent_color" class="form-label fw-bold">Accent Color</label>
+                                    <div class="text-muted small mb-2">Buttons, highlights (default: Odoo purple)</div>
+                                    <field name="pos_theme_accent_color" widget="hex_color"/>
+                                </div>
+                                <div class="col-12 col-md-6 mb-4">
+                                    <label for="pos_theme_bg_color" class="form-label fw-bold">Background</label>
+                                    <div class="text-muted small mb-2">Main background (default: light gray)</div>
+                                    <field name="pos_theme_bg_color" widget="hex_color"/>
+                                </div>
+                                <div class="col-12 col-md-6 mb-4">
+                                    <label for="pos_theme_surface_color" class="form-label fw-bold">Surface</label>
+                                    <div class="text-muted small mb-2">Panels, cards (default: white)</div>
+                                    <field name="pos_theme_surface_color" widget="hex_color"/>
+                                </div>
+                                <div class="col-12 col-md-6 mb-4">
+                                    <label for="pos_theme_text_color" class="form-label fw-bold">Text</label>
+                                    <div class="text-muted small mb-2">Primary text (default: dark gray)</div>
+                                    <field name="pos_theme_text_color" widget="hex_color"/>
+                                </div>
+                            </div>
+                            <div class="text-muted small">
+                                <i class="fa fa-info-circle me-1"></i>
+                                Text colors auto-adjust for contrast on buttons and hovers.
+                            </div>
+                        </div>
+                    </setting>
+
+                    <!-- Refund Password -->
+                    <setting id="pos_rebranding_refund_password"
+                             string="Refund Password"
+                             help="Require a password before processing refunds on the Ticket Screen.">
+                        <field name="pos_refund_password" widget="password"
+                               placeholder="Leave empty to allow refunds without password"/>
+                        <div class="text-muted mt8">
+                            When set, cashiers must enter this password to process any refund.
+                        </div>
+                    </setting>
+
+                    <!-- Idle Screen -->
+                    <setting id="pos_rebranding_idle_screen"
+                             string="Idle Screen Text"
+                             help="Text to display in the center of the idle/saver screen.">
+                        <field name="pos_idle_screen_text" placeholder="MAXIMIZOTECH"/>
+                    </setting>
+
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

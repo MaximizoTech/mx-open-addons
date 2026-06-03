@@ -9,6 +9,7 @@ Our goal is to contribute back to the fantastic Odoo community by providing clea
 | Module | Version | Description |
 |--------|---------|-------------|
 | [Odoo Branding & Menu Manager (`mx_odoo_interface`)](./mx_odoo_interface) | 18.0 | A comprehensive interface tool to remove Odoo branding, clean up user menus, and control menu visibility on a per-user basis. |
+| [POS Rebranding (`mx_pos_rebranding`)](./mx_pos_rebranding) | 18.0 | All-in-one POS customization: branding, theme colors, refund security, orderline management, and custom receipts. |
 
 ## 🚀 Installation
 
