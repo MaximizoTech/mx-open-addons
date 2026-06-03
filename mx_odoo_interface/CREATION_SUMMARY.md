@@ -40,24 +40,24 @@ Successfully created a professional, combined module that merges functionality f
 
 ```
 maximizotech_odoo_interface/
-├── __init__.py
-├── __manifest__.py
-├── README.md
-├── models/
-│   ├── __init__.py
-│   └── res_users.py
-├── views/
-│   ├── login_templates.xml
-│   └── res_users_views.xml
-├── security/
-│   └── ir.model.access.csv
-├── static/
-│   ├── description/
-│   │   ├── icon.png (128x128, professional logo)
-│   │   └── banner.png (560x280, marketing banner)
-│   └── src/
-│       └── js/
-│           └── user_menu_patch.js
+ __init__.py
+ __manifest__.py
+ README.md
+ models/
+    __init__.py
+    res_users.py
+ views/
+    login_templates.xml
+    res_users_views.xml
+ security/
+    ir.model.access.csv
+ static/
+    description/
+       icon.png (128x128, professional logo)
+       banner.png (560x280, marketing banner)
+    src/
+        js/
+            user_menu_patch.js
 ```
 
 ## Logo Design

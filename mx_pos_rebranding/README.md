@@ -36,7 +36,7 @@
 
 ##  Configuration
 
-1. Navigate to **Point of Sale → Configuration → Settings**.
+1. Navigate to **Point of Sale -> Configuration -> Settings**.
 2. Select your target Point of Sale.
 3. Scroll down to the **Rebranding & Customization** section:
    - **Upload Logo:** Select your brand's logo.

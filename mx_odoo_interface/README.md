@@ -45,7 +45,7 @@ Gain full control over what each user sees in their Odoo instance without comple
 
 ### Hiding Menus for Specific Users
 
-1. Navigate to **Settings → Users & Companies → Users**.
+1. Navigate to **Settings -> Users & Companies -> Users**.
 2. Select the internal user you wish to restrict (Note: System Administrators cannot be restricted).
 3. Open the **"Hide Specific Menu"** tab.
 4. Add the menu items you want to hide from this specific user.
@@ -53,7 +53,7 @@ Gain full control over what each user sees in their Odoo instance without comple
 
 ### Tracking Restricted Users
 
-1. Navigate to **Settings → Technical → User Interface → Menu Items**.
+1. Navigate to **Settings -> Technical -> User Interface -> Menu Items**.
 2. Open any menu item record.
 3. Open the **"Restricted Users"** tab to view a complete list of users who cannot see this menu.
 

@@ -15,38 +15,38 @@ Odoo Branding & Menu Manager
 A comprehensive interface customization tool by MaximizoTech that provides three powerful features:
 
 **1. Remove Odoo Branding**
-    • Hide "Powered by Odoo" from login page
-    • Remove "Manage Databases" link (optional)
-    • Clean, professional login experience
+    - Hide "Powered by Odoo" from login page
+    - Remove "Manage Databases" link (optional)
+    - Clean, professional login experience
 
 **2. Hide User Menu Items**
-    • Remove Documentation link
-    • Remove Support link
-    • Remove Shortcuts menu
-    • Remove Odoo Account link
-    • Remove Install PWA option
-    • Streamlined top-right user menu
+    - Remove Documentation link
+    - Remove Support link
+    - Remove Shortcuts menu
+    - Remove Odoo Account link
+    - Remove Install PWA option
+    - Streamlined top-right user menu
 
 **3. Control Menu Visibility Per User**
-    • Hide specific menu items for individual users
-    • Prevent access without removing the module
-    • Perfect for limiting non-admin user interface
-    • System admins always see all menus
-    • Easy configuration from user form view
+    - Hide specific menu items for individual users
+    - Prevent access without removing the module
+    - Perfect for limiting non-admin user interface
+    - System admins always see all menus
+    - Easy configuration from user form view
 
 **Key Benefits:**
-    • Professional, branded interface
-    • Cleaner user experience
-    • Better user access control
-    • No code modifications required
-    • Works seamlessly with Odoo 18
+    - Professional, branded interface
+    - Cleaner user experience
+    - Better user access control
+    - No code modifications required
+    - Works seamlessly with Odoo 18
 
 **Use Cases:**
-    • White-label Odoo deployments
-    • Client-specific deployments
-    • Limiting interface complexity for end users
-    • Custom branding requirements
-    • User-specific menu restrictions
+    - White-label Odoo deployments
+    - Client-specific deployments
+    - Limiting interface complexity for end users
+    - Custom branding requirements
+    - User-specific menu restrictions
 
 Developed by MaximizoTech - Custom ERP Solutions
     """,
