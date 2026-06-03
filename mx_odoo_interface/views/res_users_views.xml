@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Add "Hide Specific Menu" tab to user form -->
+    <record id="view_users_form_hide_menu" model="ir.ui.view">
+        <field name="name">res.users.form.inherit.hide.menu</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Hide Specific Menu" invisible="is_admin or is_show_specific_menu">
+                    <field name="hide_menu_ids">
+                        <list>
+                            <field name="name"/>
+                            <field name="complete_name"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+            <field name="name" position="after">
+                <field name="is_admin" invisible="1"/>
+                <field name="is_show_specific_menu" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Add "Restrict users" tab to menu form -->
+    <record id="edit_menu_access_restrict" model="ir.ui.view">
+        <field name="name">ir.ui.menu.form.inherit.restrict.users</field>
+        <field name="model">ir.ui.menu</field>
+        <field name="inherit_id" ref="base.edit_menu_access"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Restricted Users" name="restrict_users">
+                    <field name="restrict_user_ids">
+                        <list>
+                            <field name="name"/>
+                            <field name="login"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
